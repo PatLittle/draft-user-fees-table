@@ -1,7 +1,7 @@
-dataset_type: Service Fees
-target_dataset: Service Fees
+dataset_type: Annual Fees Report
+target_dataset: Annual Fees
 
-title: Service Fees
+title: Annual Fees Report
 notes: Service Inventory, Part C
 
 template_version: 3
@@ -12,15 +12,15 @@ collection: Service Fees
 gcpedia_link: http://www.gcpedia.gc.ca/wiki/GC_Service_Policy_Agenda
 
 resources:
-- title: Service Fees
-  resource_name: Service Fees
+- title: Annual Fees
+  resource_name: Annual Fees
   fields:
 
   # 3.1
-  - datastore_id: fiscal_yr
+  - datastore_id: Reference_num
     label:
-      en: Fiscal Year
-      fr: Année financière
+      en: Reference Number
+      fr: 
     description:
       en: Identifies the fiscal year for which service data is reported
       fr: Indique l’exercice pour lequel les données sur les services sont déclarées.
@@ -29,24 +29,8 @@ resources:
     validation: This field must not be empty
     occurrence: Single
     datastore_type: text
-    choices_file: choices/service_fiscal_yr.yaml
 
-  # 3.2 (was service_id_number)
-  - datastore_id: service_id
-    label:
-      en: Service ID Number
-      fr: Numéro d'identification du service
-    description:
-      en: The unique number assigned by the department to a service in the inventory to make it easier to refer to specific services.
-      fr: Le numéro unique attribué par le ministère ou l’organisme à un service dans le répertoire afin de faciliter le référencement à des services précis. (p. ex. 1, 2, etc.)
-    obligation: Mandatory
-    excel_required: true
-    format_type: Free text
-    validation: This field must not be empty
-    occurrence: Single
-    datastore_type: text
-
-  # 3.3  
+  # 3.2  
   - datastore_id: fee_grouping_en
     label:
       en: Fee Grouping Name
@@ -60,8 +44,8 @@ resources:
     validation: This field must not be empty
     occurrence: Single
     datastore_type: text
-	
- # 3.4 
+
+ # 3.3 
  - datastore_id: fee_grouping_fr
     label:
       en: Fee Grouping Name
@@ -76,7 +60,7 @@ resources:
     occurrence: Single
     datastore_type: text
 
-# 3.5 
+# 3.4 
  - datastore_id: fee_name_en
     label:
       en: Individual Fee Name (English)
@@ -91,7 +75,7 @@ resources:
     occurrence: Single
     datastore_type: text	
 
-# 3.6 
+# 3.5 
  - datastore_id: fee_name_fr
     label:
       en: Individual Fee Name (French)
@@ -104,4 +88,175 @@ resources:
     format_type: Free text
     validation: This field must not be empty
     occurrence: Single
-    datastore_type: text	
+    datastore_type: text
+
+# 3.6 
+ - datastore_id: fee_set_auth_en
+    label:
+      en: Fee-Setting Authority (English)
+      fr: 
+    description:
+      en: | 
+	  This field will display the Individual Fee Name, which is part of a fee grouping, in Frenchhis field will display the Fee-Setting Authority that indicates the authority to charge (ministerial order, departmental statute or regulation), for each individual fee, in English.Indicate whether the fee-setting authority is a ministerial order, a departmental statute or a regulation. Whenever possible, provide a hyperlink to the fee-setting authority. For example:
+	•	Financial Administration Act, paragraph 19(1)(a)
+	•	Canadian Food Inspection Agency Act, sections 24, 25, 26
+    fr: 
+    obligation: Mandatory
+    excel_required: true
+    format_type: Free text
+    validation: This field must not be empty
+    occurrence: Single
+    datastore_type: text
+
+# 3.7 
+ - datastore_id: fee_set_auth_fr
+    label:
+      en: Fee-Setting Authority (French)
+      fr: 
+    description:
+      en: | 
+	  This field will display the Individual Fee Name, which is part of a fee grouping, in Frenchhis field will display the Fee-Setting Authority that indicates the authority to charge (ministerial order, departmental statute or regulation), for each individual fee, in English.Indicate whether the fee-setting authority is a ministerial order, a departmental statute or a regulation. Whenever possible, provide a hyperlink to the fee-setting authority. For example:
+	•	Financial Administration Act, paragraph 19(1)(a)
+	•	Canadian Food Inspection Agency Act, sections 24, 25, 26
+    fr: 
+    obligation: Mandatory
+    excel_required: true
+    format_type: Free text
+    validation: This field must not be empty
+    occurrence: Single
+    datastore_type: text
+
+# 3.8 
+ - datastore_id: year_introduced
+    label:
+      en: Year Introduced
+      fr: 
+    description:
+      en: This field will display the year, for which the fee or regulatory charge was introduced, for each individual fee. 
+      fr: cette zone.... 
+    obligation: Mandatory
+    excel_required: true
+    format_type: Controlled List
+    validation: This field must not be empty
+    occurrence: Single
+    datastore_type: Year	
+
+# 3.9 
+ - datastore_id: year_amended
+    label:
+      en: Last Year Amended
+      fr: 
+    description:
+      en: This field will display the year of when the fee or charge was most recently amended, for each individual fee. If the fee-setting authority has not been amended, insert “Not applicable.” A Consumer Price Index increase or a periodic fee increase does not constitute an amendment.
+      fr: cette zone.... 
+    obligation: Mandatory
+    excel_required: true
+    format_type: Controlled List
+    validation: This field must not be empty
+    occurrence: Single
+    datastore_type: Text
+
+# 3.10 
+ - datastore_id: fee_type
+    label:
+      en: Fee Type
+      fr: 
+    description:
+      en: This field will display the fee type, for each individual fee.
+      fr: cette zone.... 
+    obligation: Mandatory
+    excel_required: true
+    format_type: Controlled List
+    validation: This field must not be empty
+    occurrence: Single
+    datastore_type: Text
+# 3.11 
+ - datastore_id: 2018-2019_fee_amount_en
+    label:
+      en: 2018 to 2019 Fee Amount English
+      fr: 
+    description:
+      en: This field will display the fee amount ($), for each individual fee for the reporting fiscal year.  If the fee is formula based, please insert the formula.
+      fr: cette zone.... 
+    obligation: Mandatory
+    excel_required: true
+    format_type: free text
+    validation: This field must not be empty
+    occurrence: Single
+    datastore_type: Text
+# 3.12 
+ - datastore_id: 2018-2019_fee_amount_french
+    label:
+      en: 2018 to 2019 Fee Amount French
+      fr: 
+    description:
+      en: This field will display the fee amount ($), for each individual fee for the reporting fiscal year.  If the fee is formula based, please insert the formula.
+      fr: cette zone.... 
+    obligation: Mandatory
+    excel_required: true
+    format_type: free text
+    validation: This field must not be empty
+    occurrence: Single
+    datastore_type: Text
+# 3.13 
+ - datastore_id: 2018-2019_fee_revenue
+    label:
+      en: 2018 to 2019 Total Fee Revenue
+      fr: 
+    description:
+      en: This field will display the total fee revenue ($), for the fee.  If no revenue was collected during the fiscal year, please insert “0”.  If the department cannot track the fee revenue, please choose “No revenue data available at this time”.
+      fr: cette zone.... 
+    obligation: Mandatory
+    excel_required: true
+    format_type: free text
+    validation: This field must not be empty
+    occurrence: Single
+    datastore_type: Text
+# 3.14 
+ - datastore_id: adjustment_type
+    label:
+      en: Type of Adjustment
+      fr: 
+    description:
+      en: |
+	This field will display the type of adjustment that each individual fee is subject to: Section 17 of the Service Fees Act (CPI), Yearly, Periodic or Exempted.
+	Section 17 of the Service Fees Act (CPI): when a fee is subject to section 17 of the SFA, therefore the yearly CPI increase.
+	Yearly: when a fee is to be adjusted by a periodic adjustment that is yearly, via a Ministerial Order, Act or Regulations.
+	Periodic: when a fee is to be adjusted by a periodic adjustment that is on a specified cycle, via a Ministerial Order, Act or Regulations.
+	Exempted: when a fee is exempted from any type of adjustments, as per their enabling legislation, Ministerial Order, Act or Regulations
+
+      fr: cette zone.... 
+    obligation: Mandatory
+    excel_required: true
+    format_type: controlled list
+    validation: This field must not be empty
+    occurrence: Single
+    datastore_type: Text
+# 3.15 
+ - datastore_id: adjustment_rate
+    label:
+      en: Rate of the Adjustment
+      fr: 
+    description:
+      en: This field will display the percentage of the adjustment (%). If the fee is based on a formula you have to choose “formula based” and if exempted, please choose “exempted”.
+      fr: cette zone.... 
+    obligation: Mandatory
+    excel_required: true
+    format_type: free text
+    validation: This field must not be empty
+    occurrence: Single
+    datastore_type: Text
+# 3.16 
+ - datastore_id: 2020-2021_fee_amount_en
+    label:
+      en: 2020 to 2021 Fee Amount 
+      fr: 
+    description:
+      en: This field will display the adjusted fee amount ($) for the 2020 to 2021 fiscal year, for each individual fee. If the fee is adjusted in a future year please insert “future year adjustment”. If the fee is adjusted by a formula, please insert the formula.
+      fr: cette zone.... 
+    obligation: Mandatory
+    excel_required: true
+    format_type: free text
+    validation: This field must not be empty
+    occurrence: Single
+    datastore_type: Text
